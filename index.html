@@ -48,32 +48,35 @@
 			        	</ul>
 			      	</div>
 			    </div>
-			    <section ng-init="tab = 1">
-			    	<ul class="nav nav-tabs nav-justified" role="tablist">
-			    		<li ng-class="{ active:tab === 1 }">
-			    			<a href ng-click="tab = 1">Description</a>
-			    		</li>
-			    		<li ng-class="{ active:tab === 2 }">
-			    			<a href ng-click="tab = 2">Specification</a>
-			    		</li>
-			    		<li ng-class="{ active:tab === 3 }">
-			    			<a href ng-click="tab = 3">Review</a>
-			    		</li>		
-			    	</ul>
-			    	<div class="panel-body" ng-show="tab === 1">
-			    		<h4>Description</h4>
-			    		<blockquote style="font-size: 12px">{{product.description}}</blockquote>
-			    	</div>
-			    	<div class="panel-body" ng-show="tab === 2">
-			    		<h4>Specification</h4>
-			    		<blockquote style="font-size: 12px">None yet</blockquote>
-			    	</div>
-			    	<div class="panel-body" ng-show="tab === 3">
-			    		<h4>Review</h4>
-			    		<blockquote style="font-size: 12px">None yet</blockquote>
-			    	</div>
-			    </section>
-
+			    <div class="panel-body">
+				    <section ng-controller="PanelController as panel">
+				    	<ul class="nav nav-tabs nav-justified" role="tablist">
+				    		<li ng-class="{ active: panel.isSelected(1) }">
+				    			<a href ng-click="panel.selectTab(1)">Description</a>
+				    		</li>
+				    		<li ng-class="{ active:panel.isSelected(2) }">
+				    			<a href ng-click="panel.selectTab(2)">Specification</a>
+				    		</li>
+				    		<li ng-class="{ active:panel.isSelected(3) }">
+				    			<a href ng-click="panel.selectTab(3)">Review</a>
+				    		</li>		
+				    	</ul>
+				    	<div class="panel-body">
+					    	<div ng-show="panel.isSelected(1)">
+					    		<h4>Description</h4>
+					    		<blockquote style="font-size: 12px">{{product.description}}</blockquote>
+					    	</div>
+					    	<div ng-show="panel.isSelected(2)">
+					    		<h4>Specification</h4>
+					    		<blockquote style="font-size: 12px">None yet</blockquote>
+					    	</div>
+					    	<div ng-show="panel.isSelected(3)">
+					    		<h4>Review</h4>
+					    		<blockquote style="font-size: 12px">None yet</blockquote>
+					    	</div>
+					    </div>
+				    </section>
+				</div>
 				<!-- Panel Footer-->
 			    <div class="panel-footer">
 			    	<pre class="text-center">

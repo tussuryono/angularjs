@@ -1,11 +1,11 @@
 (function() {
-  var app = angular.module('gemStore', []);
+  	var app = angular.module('gemStore', []);
 
-  app.controller('StoreController', function() {
-    this.products = gems;
-  });
+  	app.controller('StoreController', function() {
+    	this.products = gems;
+  	});
 
-  var gems = [{
+  	var gems = [{
 				    name: 'Azurite',
 				    description: "Some gems have hidden qualities beyond their luster, beyond their shine... Azurite is one of those gems.",
 				    shine: 8,
@@ -45,4 +45,16 @@
 				      "images/gem-08.gif"
 				    ]
 			}];
+
+	app.controller('PanelController', function() {
+		this.tab = 1;
+
+		this.selectTab = function(setTab){
+			this.tab = setTab;
+		};
+
+		this.isSelected = function(checkTab){
+			return this.tab === checkTab;
+		};
+	});
 })();
