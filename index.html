@@ -5,15 +5,17 @@
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		<!-- <link rel="stylesheet" type="text/css" href="bootstrap.min.js"> -->
 	</head>
-	<body class="container" ng-controller="StoreController as store">
-		<div ng-repeat="product in store.products">
-			<h3>
-				{{product.name}}
-				<em class="pull-right">${{product.price}}</em>
-			</h3>
-			<p>{{product.description}}</p>
-			<button ng-show="product.canPurchase">Add to Cart</button>
-		</div>
+	<body ng-controller="StoreController as store">
+		<ul class="list-group">
+			<li class="list-group-item" ng-repeat="product in store.products">
+				<h3>
+					{{product.name}}
+					<em class="pull-right">${{product.price}}</em>
+				</h3>
+				<p>{{product.description}}</p>
+				<button ng-show="product.canPurchase">Add to Cart</button>
+			</li>
+		</ul>
 		<script type="text/javascript" src="angular.min.1.6.1.js"></script>
 		<script type="text/javascript" src="app.js"></script>
 	</body>
