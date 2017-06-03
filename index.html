@@ -48,22 +48,19 @@
 			        	</ul>
 			      	</div>
 			    </div>
-			    <section>
+			    <section ng-init="tab = 1">
 			    	<ul class="nav nav-tabs nav-justified" role="tablist">
 			    		<li><a href ng-click="tab = 1">Description</a></li>
 			    		<li><a href ng-click="tab = 2">Specification</a></li>
 			    		<li><a href ng-click="tab = 3">Review</a></li>		
 			    	</ul>
 			    	<div class="panel" ng-show="tab === 1">
-			    		<h4>Description</h4>
-			    		<p>{{product.description}}</p>
+			    		<blockquote>{{product.description}}</blockquote>
 			    	</div>
 			    	<div class="panel" ng-show="tab === 2">
-			    		<h4>Specification</h4>
 			    		<blockquote>None yet</blockquote>
 			    	</div>
 			    	<div class="panel" ng-show="tab === 3">
-			    		<h4>Review</h4>
 			    		<blockquote>None yet</blockquote>
 			    	</div>
 			    </section>
