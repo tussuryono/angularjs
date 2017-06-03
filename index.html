@@ -1,22 +1,75 @@
 <!DOCTYPE html>
-<html ng-app="store">
-	<head>
-		<title></title>
-		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<!-- <link rel="stylesheet" type="text/css" href="bootstrap.min.js"> -->
-	</head>
-	<body ng-controller="StoreController as store">
-		<ul class="list-group">
-			<li class="list-group-item" ng-repeat="product in store.products">
-				<h3>
-					{{product.name}}
-					<em class="pull-right">${{product.price}}</em>
-				</h3>
-				<p>{{product.description}}</p>
-				<button ng-show="product.canPurchase">Add to Cart</button>
-			</li>
-		</ul>
-		<script type="text/javascript" src="angular.min.1.6.1.js"></script>
-		<script type="text/javascript" src="app.js"></script>
-	</body>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.1.6.1.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body ng-controller="StoreController as store">
+
+    <!--  Header Page  -->
+    <div class="container-fluid jumbotron">
+		<h2 class="container text-center">
+			Flatlander Crafted Gems
+			<small>
+					an angular store
+			</small>
+		</h2>    	
+    </div>
+
+    <!--  Product Container  -->
+    <div class="container">
+	    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" ng-repeat="product in store.products">
+
+			<!-- Panel each item-->    
+	    	<div class="panel panel-danger">
+
+	    	<!-- Panel Header-->
+	    		<div class="panel-heading">
+	    			<span class="lead text-danger">
+	    				{{product.name + ' Gem'}}
+	    				<span ng-if="product.price"
+	    						class="label label-danger pull-right"
+	    						style="line-height: 1.42857143">
+	    					{{product.price | currency}} each
+	    				</span>
+	    			</span>
+	    		</div>
+
+	    	<!-- Panel Body-->
+		    	<div class="panel-body">
+			      	<!-- Image Gallery  -->
+			      	<div ng-show="product.images.length">
+			          		<img class="img-rounded center-block" ng-src="{{product.images[0]}}" />
+			        	<ul class="list-inline list-unstyled text-center" style="margin-top: 20px">
+			          		<li ng-repeat="image in product.images">
+			            		<img class="thumbnail" style="max-height: 75px" ng-src="{{image}}" />
+			          		</li>
+			        	</ul>
+			      	</div>
+			    </div>
+
+				<!-- Panel Footer-->
+			    <div class="panel-footer">
+			    	<pre class="text-center">
+						
+					</pre>
+			    </div>
+		    </div>
+	    </div>
+	 </div>
+
+    <!--  Footer Page  -->
+    <div class="container-fluid jumbotron" style="margin-bottom: 0">
+		<h3 class="container text-center">
+			Learn how to build this at&nbsp;
+			<a class="btn btn-lg btn-success"
+			   ng-href="http://angular.codeschool.com/"
+			   target="_blank"
+			   type="button">
+				Angular.CodeSchool.com
+			</a>
+		</h3>
+    </div>
+  </body>
 </html>
