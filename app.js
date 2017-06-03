@@ -5,6 +5,14 @@
     	this.products = gems;
   	});
 
+  	app.controller('GalleryController', function() {
+  		this.currentIndex = 0;
+
+  		this.setCurrent = function (current) {
+  			this.currentIndex = current || 0;
+  		};
+  	});
+
   	var gems = [{
 				    name: 'Azurite',
 				    description: "Some gems have hidden qualities beyond their luster, beyond their shine... Azurite is one of those gems.",
